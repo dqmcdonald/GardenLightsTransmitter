@@ -150,10 +150,16 @@ void loop()
   // Call code if Bounce fell (transition from HIGH to LOW) :
   if ( channel_one_button_debouncer.fell() ) {
     sendButton(1);
+    val = analogRead( CHANNEL_ONE_POT_PIN );
+    channel_one_pot_value = val;
+    sendPots(1, channel_one_pot_value );
   }
 
   if ( channel_two_button_debouncer.fell() ) {
     sendButton(2);
+    val = analogRead( CHANNEL_TWO_POT_PIN );
+    channel_two_pot_value = val;
+    sendPots(2, channel_two_pot_value );
   }
 
   val = analogRead( CHANNEL_ONE_POT_PIN );
